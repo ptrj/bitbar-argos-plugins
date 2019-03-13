@@ -9,3 +9,5 @@ Run multiple Firefox profiles
   - in to URL type about:profiles
   - create profiles
   - put your profile names in to PROFILES variable
+
+![Image](https://i.imgur.com/XxVNUa6.png)
