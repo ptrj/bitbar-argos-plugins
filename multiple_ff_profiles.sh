@@ -17,7 +17,7 @@ PROFILES="Default Anonimize Private Bank Work"
 ROOTDIR="$(dirname "${BASH_SOURCE[0]}")"
 SELFNAME="$(basename "${BASH_SOURCE[0]}")"
 PATTERN="+($(echo ${PROFILES// /|}))"
-EDITIONS="s e"
+EDITIONS="s d"
 
 
 ## Firefox Stable
@@ -25,9 +25,9 @@ open_ffs() {
   /Applications/Firefox.app/Contents/MacOS/firefox -P "${PROFILE}" >/dev/null 2>&1 &
 }
 
-## Firefox ESR
-open_ffe() {
-  /Applications/Firefox\ ESR.app/Contents/MacOS/firefox -P "${PROFILE}" >/dev/null 2>&1 &
+## Firefox Developer Edition
+open_ffd() {
+  /Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox -P "${PROFILE}" >/dev/null 2>&1 &
 }
 
 bitbar() {
@@ -35,9 +35,11 @@ bitbar() {
   echo "---";
   for PROFILE in ${PROFILES}; do
     echo "$PROFILE | bash=$ROOTDIR/$SELFNAME param1=$PROFILE param2=s terminal=false"
-    echo "----"
-    echo "-- Stable | bash=$ROOTDIR/$SELFNAME param1=$PROFILE param2=s terminal=false"
-    echo "-- ESR | bash=$ROOTDIR/$SELFNAME param1=$PROFILE param2=e terminal=false"
+    if [ -f "/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox" ]; then
+      echo "----"
+      echo "-- Stable | bash=$ROOTDIR/$SELFNAME param1=$PROFILE param2=s terminal=false"
+      echo "-- Devel | bash=$ROOTDIR/$SELFNAME param1=$PROFILE param2=d terminal=false"
+    fi
   done
 }
 
