@@ -14,3 +14,4 @@ Run multiple Firefox profiles
   - install script
 
 ![Image](https://i.imgur.com/XxVNUa6.png)
+![Image](https://i.imgur.com/fLx6tA9.png)
