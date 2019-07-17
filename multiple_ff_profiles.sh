@@ -8,10 +8,10 @@ SELFNAME="$(basename "${BASH_SOURCE[0]}")"
 ## Icon
 ICON="🦊"
 #ICON=":globe_with_meridians:"
-## Sort output by FF Profiles or FF Editions
+## Group by FF Profiles or FF Editions
 ## Firefox profiles = FFP
 ## Firefox editions = FFE
-FFSORT="FFP"
+FFGROUP="FFP"
 ## Detect OS
 PLATFORM="unknown"
 UNAMESTR="$(uname)"
@@ -130,7 +130,7 @@ ff_editions() {
   done
 }
 
-if [ "$FFSORT" == "FFP" ]; then
+if [ "$FFGROUP" == "FFP" ]; then
   PROFILE="$1"
   EDITION="$2"
   case "$PROFILE" in
@@ -144,7 +144,7 @@ if [ "$FFSORT" == "FFP" ]; then
   esac
 fi
 
-if [ "$FFSORT" == "FFE" ]; then
+if [ "$FFGROUP" == "FFE" ]; then
   PROFILE="$1"
   EDITION="$2"
   case "$EDITION" in
