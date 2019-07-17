@@ -41,7 +41,7 @@ elif [ "$UNAMESTR" == "Darwin" ]; then
   FFPPATH="$HOME/Library/Application Support/Firefox/Profiles"
 fi
 ## Firefox profiles
-PROFILES="$(find "$FFPPATH" -maxdepth 1 -name "*.*" -type d | awk -F"." '{print $NF}' | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/ /g')"
+PROFILES="$(find "$FFPPATH" -maxdepth 1 -name "*.*" -type d | awk -F"." '{print $NF}' |sort| sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/ /g')"
 if [ ! -f "$FFSBIN" -a ! -f "$FFEBIN" -a ! -f "$FFDBIN" -a ! -f "$FFNBIN" ]; then
   echo "Install Firefox or edit Binary Paths in script!"
   exit 1
